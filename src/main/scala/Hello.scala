@@ -13,7 +13,14 @@ object Hello {
 
     import monocle.syntax.apply._
 
+    //klasycznie
     val c1 = (Employee.company ^|-> Company.name).set("tadam!")(e)
+
+    //albo ze scalaz
+    import scalaz._, Scalaz._
+    val c2 = e |> (Employee.company ^|-> Company.name).set("tadam!")
+
     println(c1)
+    println(c2)
   }
 }
